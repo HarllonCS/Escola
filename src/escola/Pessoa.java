@@ -46,6 +46,7 @@ public class Pessoa {
     // Método construtor
     public Pessoa() {
         this.matri = false;
+        
     }
     
     Scanner input = new Scanner(System.in);
@@ -70,8 +71,8 @@ public class Pessoa {
                     System.out.println(getNome().toUpperCase() + " agora está matriculada.");
                 }
             */
-            System.out.println(getSexo() == 'M' ? "Matriculado com sucesso!" :
-                    "Matriculada com sucesso!");
+            System.out.println(getSexo() == 'M' ? "\nMatriculado com sucesso!" :
+                    "\nMatriculada com sucesso!");
             
         } else {
             System.out.println("\n" + getNome().toUpperCase() + " nao atende os requisitos de matricula.");
