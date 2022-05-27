@@ -6,17 +6,13 @@ import java.util.Scanner;
  *
  * @author Harllon Cícero
  */
-
 public class Pessoa {
     
     // Variáveis
-    private String nome, sexo;
+    private String nome;
+    private char sexo;
     private byte idade;
     private boolean matri;
-    
-    // Variáveis apenas para esta classe
-    private final boolean masc = getSexo() == "M" || getSexo() == "m";
-    private final boolean fem = getSexo() == "F" || getSexo() == "f";
     
     // Métodos especiais
     public String getNome() {
@@ -26,10 +22,10 @@ public class Pessoa {
         this.nome = nome;
     }
     
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
     
@@ -47,88 +43,82 @@ public class Pessoa {
         this.matri = matri;
     }
     
-    // Métodos das variáveis finais
-    private boolean getMasc() {
-        return masc;
-    }
-    private boolean getFem() {
-        return fem;
-    }
-
     // Método construtor
     public Pessoa() {
         this.matri = false;
     }
     
+    Scanner input = new Scanner(System.in);
     
     // Outros métodos
     public void matricular() {
         
-        Scanner input = new Scanner(System.in);
+        System.out.println("============ | matricula | ============".toUpperCase());
         
-        System.out.println("============ | matrícula | ============".toUpperCase());
-        
-        System.out.println("Insira seu nome: ");
+        System.out.print("\nInsira seu nome: ");
         setNome(input.nextLine());
-        
-        System.out.println("Insira sua idade: ");
-        setIdade(input.nextByte());
-        
-        System.out.println("Insira seu sexo: "); // .nextLine() pula uma linha
-        setSexo(input.nextLine());
-        
-        verifIdade();
-        verifSexo();
         
         if (verifIdade() && verifSexo()) {
             
             setMatri(true);
             
             /*
-                if (masc) {
+                if (getSexo() == 'M') {
                     System.out.println(getNome().toUpperCase() + " agora está matriculado.");
                 } else {
                     System.out.println(getNome().toUpperCase() + " agora está matriculada.");
                 }
-            
             */
-            
-            System.out.println(getMasc() ? "Matriculado com sucesso!" :
+            System.out.println(getSexo() == 'M' ? "Matriculado com sucesso!" :
                     "Matriculada com sucesso!");
             
         } else {
-            System.out.println(getNome().toUpperCase() + " não atende os requisitos da matrícula.");
+            System.out.println("\n" + getNome().toUpperCase() + " nao atende os requisitos de matricula.");
         }
     }
     
     private boolean verifIdade() {
         
-        System.out.println("Idade inserida: " + getIdade());
+        System.out.print("\nInsira sua idade: ");
+        setIdade(input.nextByte());
+        
+        System.out.println("\nIdade inserida: " + getIdade());
         
        if (getIdade() < 0) {
            
-           System.out.println("Idade inválida.".toUpperCase());
+           System.out.println("\nIdade invalida.".toUpperCase());
            
            return false;
            
        } else if (getIdade() < 12) {
            
-           System.out.println("Você ainda não tem idade necessária para se matricular aqui!");
+           System.out.println("\nVoce ainda nao tem idade necessaria para se matricular aqui!");
      
            return false;
-       }
            
-       return true;
+       } else {
+           
+           return true;
+       }
     }
     
     private boolean verifSexo() {
         
-        if (getMasc() || getFem()) {
+        System.out.println("\nInsira seu sexo");
+        
+        System.out.println("\n1 - Masculino\n2 - Feminino");
+        System.out.print("\nDigite aqui: ");
+        byte esc = input.nextByte();
+        
+        switch (esc) {
+            case 1:
+                setSexo('M');
+            return true;
             
+            case 2:
+                setSexo('F');
             return true;
         }
-        
-        System.out.println("Sexo " + getSexo() + " é invalido!");
         
         return false;
     }
@@ -136,6 +126,6 @@ public class Pessoa {
     @Override
     public String toString() {
         return "\nNome: " + getNome().toUpperCase() + "\nIdade: " + getIdade() +
-                "\nSexo: " + getSexo().toUpperCase();
+                "\nSexo: " + getSexo();
     }
 }
