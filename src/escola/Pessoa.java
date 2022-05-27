@@ -58,6 +58,7 @@ public class Pessoa {
         System.out.print("\nInsira seu nome: ");
         setNome(input.nextLine());
         
+        // Verificar a os valores inseridos e fazer comparação
         if (verifIdade() && verifSexo()) {
             
             setMatri(true);
@@ -77,6 +78,7 @@ public class Pessoa {
         }
     }
     
+    // Verificar a idade do usuário
     private boolean verifIdade() {
         
         System.out.print("\nInsira sua idade: ");
@@ -102,6 +104,7 @@ public class Pessoa {
        }
     }
     
+    // Verificar o sexo do usuário
     private boolean verifSexo() {
         
         System.out.println("\nInsira seu sexo");
