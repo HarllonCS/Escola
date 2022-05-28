@@ -36,7 +36,7 @@ public class Pessoa {
         this.idade = idade;
     }
     
-    public boolean getMatri() {
+    public boolean isMatri() {
         return matri;
     }
     public void setMatri(boolean matri) {
@@ -46,7 +46,6 @@ public class Pessoa {
     // Método construtor
     public Pessoa() {
         this.matri = false;
-        
     }
     
     Scanner input = new Scanner(System.in);
@@ -54,7 +53,7 @@ public class Pessoa {
     // Outros métodos
     public void matricular() {
         
-        System.out.println("============ | matricula | ============".toUpperCase());
+        System.out.println("============| matricula |============".toUpperCase());
         
         System.out.print("\nInsira seu nome: ");
         setNome(input.nextLine());
@@ -63,6 +62,8 @@ public class Pessoa {
         if (verifIdade() && verifSexo()) {
             
             setMatri(true);
+            
+            System.out.println(toString());
             
             /*
                 if (getSexo() == 'M') {
@@ -87,28 +88,27 @@ public class Pessoa {
         
         System.out.println("\nIdade inserida: " + getIdade());
         
-       if (getIdade() < 0) {
+        if (getIdade() < 0) {
            
-           System.out.println("\nIdade invalida.".toUpperCase());
+            System.out.println("\nIdade invalida.".toUpperCase());
            
-           return false;
+            return false;
            
-       } else if (getIdade() < 12) {
+        } else if (getIdade() < 12) {
            
-           System.out.println("\nVoce ainda nao tem idade necessaria para se matricular aqui!");
+            System.out.println("\nVoce ainda nao tem idade necessaria para se matricular aqui!");
      
-           return false;
+            return false;
            
-       } else {
-           
-           return true;
+        } else {
+            return true;
        }
     }
     
     // Verificar o sexo do usuário
     private boolean verifSexo() {
         
-        System.out.println("\nInsira seu sexo");
+        System.out.println("\nInsira seu sexo".toUpperCase());
         
         System.out.println("\n1 - Masculino\n2 - Feminino");
         System.out.print("\nDigite aqui: ");
@@ -124,12 +124,23 @@ public class Pessoa {
             return true;
         }
         
+        System.out.println(esc + " e uma opcao invalida!");
+        
         return false;
     }
 
     @Override
     public String toString() {
-        return "\nNome: " + getNome().toUpperCase() + "\nIdade: " + getIdade() +
-                "\nSexo: " + getSexo();
+        
+        /*
+            if (isMatri()) {
+                return "\nNome: " + getNome().toUpperCase() + "\nIdade: " + getIdade() +
+                    "\nSexo: " + getSexo();
+            } else {
+                return "\nPerfil incompleto!".toUpperCase();
+            }
+        */
+        return isMatri() ? "\nNome: " + getNome().toUpperCase() + "\nIdade: " +
+                getIdade() + "\nSexo: " + getSexo() : "\nPerfil incompleto!";
     }
 }
