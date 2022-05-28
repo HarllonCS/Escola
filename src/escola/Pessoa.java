@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author Harllon Cícero
  */
-public class Pessoa {
+public abstract class Pessoa {
     
     // Variáveis
     private String nome;
@@ -43,41 +43,11 @@ public class Pessoa {
         this.matri = matri;
     }
     
+    Scanner input = new Scanner(System.in);
+    
     // Método construtor
     public Pessoa() {
         this.matri = false;
-    }
-    
-    Scanner input = new Scanner(System.in);
-    
-    // Outros métodos
-    public void matricular() {
-        
-        System.out.println("============| matricula |============".toUpperCase());
-        
-        System.out.print("\nInsira seu nome: ");
-        setNome(input.nextLine());
-        
-        // Verificar a os valores inseridos e fazer comparação
-        if (verifIdade() && verifSexo()) {
-            
-            setMatri(true);
-            
-            System.out.println(toString());
-            
-            /*
-                if (getSexo() == 'M') {
-                    System.out.println(getNome().toUpperCase() + " agora está matriculado.");
-                } else {
-                    System.out.println(getNome().toUpperCase() + " agora está matriculada.");
-                }
-            */
-            System.out.println(getSexo() == 'M' ? "\nMatriculado com sucesso!" :
-                    "\nMatriculada com sucesso!");
-            
-        } else {
-            System.out.println("\n" + getNome().toUpperCase() + " nao atende os requisitos de matricula.");
-        }
     }
     
     // Verificar a idade do usuário
@@ -89,15 +59,9 @@ public class Pessoa {
         System.out.println("\nIdade inserida: " + getIdade());
         
         if (getIdade() < 0) {
+            
+            System.out.println("\nIdade inserida: " + getIdade() + "\nIdade invalida!");
            
-            System.out.println("\nIdade invalida.".toUpperCase());
-           
-            return false;
-           
-        } else if (getIdade() < 12) {
-           
-            System.out.println("\nVoce ainda nao tem idade necessaria para se matricular aqui!");
-     
             return false;
            
         } else {
@@ -132,15 +96,7 @@ public class Pessoa {
     @Override
     public String toString() {
         
-        /*
-            if (isMatri()) {
-                return "\nNome: " + getNome().toUpperCase() + "\nIdade: " + getIdade() +
-                    "\nSexo: " + getSexo();
-            } else {
-                return "\nPerfil incompleto!".toUpperCase();
-            }
-        */
-        return isMatri() ? "\nNome: " + getNome().toUpperCase() + "\nIdade: " +
-                getIdade() + "\nSexo: " + getSexo() : "\nPerfil incompleto!";
+        return "\nNome: " + getNome().toUpperCase() + "\nIdade: " +
+                getIdade() + "\nSexo: " + getSexo();
     }
 }
