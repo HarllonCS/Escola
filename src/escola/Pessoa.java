@@ -12,7 +12,7 @@ public abstract class Pessoa {
     private String nome;
     private char sexo;
     private byte idade;
-    private boolean matri;
+    private boolean matriculado;
     
     // Métodos especiais
     public String getNome() {
@@ -36,18 +36,18 @@ public abstract class Pessoa {
         this.idade = idade;
     }
     
-    public boolean isMatri() {
-        return matri;
+    public boolean isMatriculado() {
+        return matriculado;
     }
-    public void setMatri(boolean matri) {
-        this.matri = matri;
+    public void setMatriculado(boolean matriculado) {
+        this.matriculado = matriculado;
     }
     
     Scanner input = new Scanner(System.in);
     
     // Método construtor
     public Pessoa() {
-        this.matri = false;
+        this.matriculado = false;
     }
     
     // Verificar a idade do usuário
