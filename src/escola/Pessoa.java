@@ -1,5 +1,7 @@
 package escola;
 
+import java.util.Calendar;
+
 /**
  *
  * @author Harllon Cícero
@@ -9,10 +11,9 @@ public abstract class Pessoa {
     // Variáveis
     private String nome;
     private char sexo;
-    private byte idade;
+    private int anoNasc;
     private boolean matriculado;
     
-    // Métodos especiais
     public String getNome() {
         return nome;
     }
@@ -27,11 +28,11 @@ public abstract class Pessoa {
         this.sexo = sexo;
     }
     
-    public byte getIdade() {
-        return idade;
+    public int getAnoNasc() {
+        return anoNasc;
     }
-    public void setIdade(byte idade) {
-        this.idade = idade;
+    public void setAnoNasc(int anoNasc) {
+        this.anoNasc = anoNasc;
     }
     
     public boolean isMatriculado() {
@@ -41,38 +42,45 @@ public abstract class Pessoa {
         this.matriculado = matriculado;
     }
     
+    private final int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
+    
     // Método construtor
     public Pessoa() {
         this.matriculado = false;
     }
     
     // Verificar todos os dados do usuário
-    protected void verifDados(){
+    public void verifDados(){
         
         if (verifIdade() && verifSexo()) {
             
-            System.out.println("\nDados verificados!");
+            System.out.println("Dados verificados!");
+            System.out.println(toString());
         
         } else {
             System.out.println("\nDados incorretos!");
             
-            setNome("");
-            setIdade((byte)0);
-            setSexo(' ');
+            nome = "";
+            anoNasc = 0;
+            sexo = ' ';
+            
+            System.out.println(toString());
         }
     }
     
     // Verificar a idade do usuário
     private boolean verifIdade() {
         
-        System.out.println("\nIdade inserida: " + getIdade());
+        int idade = anoAtual - anoNasc;
         
-        if (getIdade() <= 0) {
+        if (idade > 200) {
+            System.out.println("\nAno de nascimento inserido: " + anoNasc);
             
-            System.out.println("\nIdade invalida!");
+            System.out.println("Idade calculada: " + idade);
+            
+            System.out.println("Idade invalida!");
            
             return false;
-           
         } else {
             return true;
        }
@@ -81,18 +89,23 @@ public abstract class Pessoa {
     // Verificar o sexo do usuário
     private boolean verifSexo() {
         
-        boolean masc = getSexo() == 'M' || getSexo() == 'm';
-        boolean fem = getSexo() == 'F' || getSexo() == 'f';
+        boolean masc = sexo == 'M' || sexo == 'm';
+        boolean fem = sexo == 'F' || sexo == 'f';
         
-        System.out.println("Sexo inserido: " + getSexo());
-        
-        return masc || fem;
+        if (masc || fem) {
+            return true;
+        } else {
+            System.out.println("Sexo inserido: " + sexo);
+            return false;
+        }
     }
 
     @Override
     public String toString() {
         
-        return "\nNome: " + getNome().toUpperCase() + "\nIdade: " +
-                getIdade() + "\nSexo: " + getSexo() + "\nMatriculado(a): " + isMatriculado();
+        int idade = anoAtual - anoNasc;
+        
+        return "\nNome: " + nome.toUpperCase() + "\nIdade: " +
+                idade + "\nSexo: " + sexo + "\nMatriculado(a): " + matriculado;
     }
 }

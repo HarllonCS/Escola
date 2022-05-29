@@ -6,9 +6,9 @@ package escola;
  */
 public class Aluno extends Pessoa {
     
-    public Aluno (String nome, byte idade, char sexo) {
+    public Aluno (String nome, int anoNasc, char sexo) {
         setNome(nome);
-        setIdade(idade);
+        setAnoNasc(anoNasc);
         setSexo(sexo);
         
         verifDados();

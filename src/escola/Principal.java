@@ -8,8 +8,6 @@ public class Principal {
 
     public static void main(String[] args) {
         
-        Aluno a1 = new Aluno("Fulana", (byte)-4, 's');
-        
-        System.out.println(a1.toString());
+        Aluno a1 = new Aluno("Fulano", 2012, 'M');
     }
 }
