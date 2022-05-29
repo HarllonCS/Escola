@@ -8,6 +8,7 @@ public class Principal {
 
     public static void main(String[] args) {
         
-        Aluno a1 = new Aluno("Fulano", 2012, 'M');
+        Pessoa p1 = new Pessoa("Fulana", 1822, 'F');
+        
     }
 }

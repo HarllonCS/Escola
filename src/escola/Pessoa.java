@@ -6,7 +6,7 @@ import java.util.Calendar;
  *
  * @author Harllon Cícero
  */
-public abstract class Pessoa {
+public class Pessoa {
     
     // Variáveis
     private String nome;
@@ -45,8 +45,15 @@ public abstract class Pessoa {
     private final int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
     
     // Método construtor
-    public Pessoa() {
+    public Pessoa(String nome, int anoNasc, char sexo) {
+        
+        this.nome = nome;
+        this.anoNasc = anoNasc;
+        this.sexo = sexo;
+        
         this.matriculado = false;
+        
+        verifDados();
     }
     
     // Verificar todos os dados do usuário
