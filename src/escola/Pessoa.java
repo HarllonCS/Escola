@@ -1,7 +1,5 @@
 package escola;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Harllon Cícero
@@ -43,24 +41,35 @@ public abstract class Pessoa {
         this.matriculado = matriculado;
     }
     
-    Scanner input = new Scanner(System.in);
-    
     // Método construtor
     public Pessoa() {
         this.matriculado = false;
     }
     
+    // Verificar todos os dados do usuário
+    protected void verifDados(){
+        
+        if (verifIdade() && verifSexo()) {
+            
+            System.out.println("\nDados verificados!");
+        
+        } else {
+            System.out.println("\nDados incorretos!");
+            
+            setNome("");
+            setIdade((byte)0);
+            setSexo(' ');
+        }
+    }
+    
     // Verificar a idade do usuário
     private boolean verifIdade() {
         
-        System.out.print("\nInsira sua idade: ");
-        setIdade(input.nextByte());
-        
         System.out.println("\nIdade inserida: " + getIdade());
         
-        if (getIdade() < 0) {
+        if (getIdade() <= 0) {
             
-            System.out.println("\nIdade inserida: " + getIdade() + "\nIdade invalida!");
+            System.out.println("\nIdade invalida!");
            
             return false;
            
@@ -72,31 +81,18 @@ public abstract class Pessoa {
     // Verificar o sexo do usuário
     private boolean verifSexo() {
         
-        System.out.println("\nInsira seu sexo".toUpperCase());
+        boolean masc = getSexo() == 'M' || getSexo() == 'm';
+        boolean fem = getSexo() == 'F' || getSexo() == 'f';
         
-        System.out.println("\n1 - Masculino\n2 - Feminino");
-        System.out.print("\nDigite aqui: ");
-        byte esc = input.nextByte();
+        System.out.println("Sexo inserido: " + getSexo());
         
-        switch (esc) {
-            case 1:
-                setSexo('M');
-            return true;
-            
-            case 2:
-                setSexo('F');
-            return true;
-        }
-        
-        System.out.println(esc + " e uma opcao invalida!");
-        
-        return false;
+        return masc || fem;
     }
 
     @Override
     public String toString() {
         
         return "\nNome: " + getNome().toUpperCase() + "\nIdade: " +
-                getIdade() + "\nSexo: " + getSexo();
+                getIdade() + "\nSexo: " + getSexo() + "\nMatriculado(a): " + isMatriculado();
     }
 }

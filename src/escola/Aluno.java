@@ -10,6 +10,8 @@ public class Aluno extends Pessoa {
         setNome(nome);
         setIdade(idade);
         setSexo(sexo);
+        
+        verifDados();
     }
     
     // Outros métodos
