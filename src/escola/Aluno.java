@@ -12,7 +12,6 @@ public class Aluno {
     // Variáveis
     private String nome, sexo;
     private int anoNasc;
-    private boolean matri;
     
     private final int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
     
@@ -37,20 +36,12 @@ public class Aluno {
     public void setIdade(int anoNasc) {
         this.anoNasc = anoNasc;
     }
-    
-    public boolean isMatri() {
-        return matri;
-    }
-    public void setMatri(boolean matri) {
-        this.matri = matri;
-    }
 
     // Método construtor
     public Aluno(String nome, int anoNasc, String sexo) {
         this.nome = nome;
         this.anoNasc = anoNasc;
         this.sexo = sexo;
-        this.matri = false;
     }
     
     @Override
