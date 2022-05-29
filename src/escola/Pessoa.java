@@ -6,7 +6,7 @@ import java.util.Calendar;
  *
  * @author Harllon Cícero
  */
-public class Pessoa {
+public final class Pessoa {
     
     // Variáveis
     private String nome;
