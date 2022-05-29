@@ -36,13 +36,6 @@ public abstract class Pessoa {
     public void setAnoNasc(int anoNasc) {
         this.anoNasc = anoNasc;
     }
-
-    // Método construtor
-    public Pessoa(String nome, int anoNasc, String sexo) {
-        this.nome = nome;
-        this.anoNasc = anoNasc;
-        this.sexo = sexo;
-    }
     
     @Override
     public String toString() {
