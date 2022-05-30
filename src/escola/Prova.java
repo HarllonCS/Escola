@@ -1,5 +1,7 @@
 package escola;
 
+import java.util.Random;
+
 /**
  *
  * @author Harllon Cícero
@@ -31,5 +33,12 @@ public class Prova {
     @Override
     public String toString() {
         return "\nTipo da prova: " + tipoProva + "\nTempo da prova: " + tempoProva + "h";
+    }
+    
+    public void resultProva() {
+        
+        Random rd = new Random();
+        
+        
     }
 }

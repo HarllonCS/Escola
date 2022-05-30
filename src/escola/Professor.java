@@ -21,22 +21,22 @@ public class Professor extends Pessoa {
         
         if (alunoMasc && profMasc) {
             
-            System.out.println("O professor " + getNome().toUpperCase() + " aplicou prova de "
+            System.out.println("\nO professor " + getNome().toUpperCase() + " aplicou prova de "
                     + p.getTipoProva() + " para o aluno " + a.getNome().toUpperCase() + "!");
         
         } else if (alunoFem && profFem) {
             
-            System.out.println("A professora " + getNome().toUpperCase() + " aplicou prova de "
+            System.out.println("\nA professora " + getNome().toUpperCase() + " aplicou prova de "
                     + p.getTipoProva() + " para a aluna " + a.getNome().toUpperCase() + "!");
             
         } else if (alunoMasc && profFem) {
             
-            System.out.println("O professor " + getNome().toUpperCase() + " aplicou prova de "
+            System.out.println("\nO professor " + getNome().toUpperCase() + " aplicou prova de "
                     + p.getTipoProva() + " para a aluna " + a.getNome().toUpperCase() + "!");
             
         } else {
             
-            System.out.println("A professora " + getNome().toUpperCase() + " aplicou prova de "
+            System.out.println("\nA professora " + getNome().toUpperCase() + " aplicou prova de "
                     + p.getTipoProva() + " para o aluno " + a.getNome().toUpperCase() + "!");
         }
         

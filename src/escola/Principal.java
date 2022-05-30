@@ -1,5 +1,7 @@
 package escola;
 
+import java.util.Random;
+
 /**
  *
  * @author Harllon Cícero
@@ -8,6 +10,7 @@ public class Principal {
 
     public static void main(String[] args) {
         
+        /*
         Aluno a1 = new Aluno("Fulano", 2008, "M");
         Aluno a2 = new Aluno("Beutrana", 2002, "F");
         Aluno a3 = new Aluno("Canecuco", 1992, "M");
@@ -28,5 +31,11 @@ public class Principal {
         Prova pr7 = new Prova("Sociologia", 2.3f);
         
         p2.apliProva(a3, pr7);
+        p1.apliProva(a1, pr5);
+        p4.apliProva(a2, pr3);
+        p3.apliProva(a5, pr1);
+        */
+        
+        
     }
 }
