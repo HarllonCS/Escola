@@ -1,5 +1,6 @@
 package escola;
 
+import java.io.PrintStream;
 import java.util.Random;
 
 /**
@@ -35,10 +36,22 @@ public class Prova {
         return "\nTipo da prova: " + tipoProva + "\nTempo da prova: " + tempoProva + "h";
     }
     
-    public void resultProva() {
+    public void resultProva(Aluno a) {
         
-        Random rd = new Random();
+        Random rdNum = new Random();
+        Random rdOp = new Random();
         
+        float num = Math.round(rdNum.nextFloat(.0f, 10.0f));
+        int op = rdOp.nextInt(2);
         
+        if (op == 0) {
+            num += .5f;
+        }
+        
+        if (num > 10.0f) {
+           num = 10.0f;
+        }
+        
+        System.out.printf("\n%S tirou %.1f na prova de %s!\n", a.getNome(), num, tipoProva);
     }
 }

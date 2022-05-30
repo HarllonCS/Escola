@@ -20,27 +20,25 @@ public class Professor extends Pessoa {
         boolean profFem = getSexo().equals("F");
         
         if (alunoMasc && profMasc) {
+            System.out.printf("\nO professor %S aplicou prova de %s para o aluno %S!",
+                    getNome(), p.getTipoProva(), a.getNome());
             
-            System.out.println("\nO professor " + getNome().toUpperCase() + " aplicou prova de "
-                    + p.getTipoProva() + " para o aluno " + a.getNome().toUpperCase() + "!");
-        
         } else if (alunoFem && profFem) {
-            
-            System.out.println("\nA professora " + getNome().toUpperCase() + " aplicou prova de "
-                    + p.getTipoProva() + " para a aluna " + a.getNome().toUpperCase() + "!");
+            System.out.printf("\nA professor %S aplicou prova de %s para a aluna %S!",
+                    getNome(), p.getTipoProva(), a.getNome());
             
         } else if (alunoMasc && profFem) {
-            
-            System.out.println("\nO professor " + getNome().toUpperCase() + " aplicou prova de "
-                    + p.getTipoProva() + " para a aluna " + a.getNome().toUpperCase() + "!");
+            System.out.printf("\nO professor %S aplicou prova de %s para a aluna %S!",
+                    getNome(), p.getTipoProva(), a.getNome());
             
         } else {
-            
-            System.out.println("\nA professora " + getNome().toUpperCase() + " aplicou prova de "
-                    + p.getTipoProva() + " para o aluno " + a.getNome().toUpperCase() + "!");
+            System.out.printf("\nA professora %S aplicou prova de %s para o aluno %S!",
+                    getNome(), p.getTipoProva(), a.getNome());
         }
         
-        System.out.println(a.getNome().toUpperCase() + " tem " + p.getTempoProva()
-        + "h para fazer a prova.");
+        System.out.printf("\n%S tem %.1fh pra fazer a prova de %s.\n",
+                a.getNome(), p.getTempoProva(), p.getTipoProva());
+        
+        p.resultProva(a);
     }
 }
