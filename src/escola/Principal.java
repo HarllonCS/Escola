@@ -21,7 +21,7 @@ public class Principal {
         
         Prova pr1 = new Prova("Matematica", 3.5f);
         Prova pr2 = new Prova("Fisica", 4.8f);
-        Prova pr3 = new Prova("Portgues", 2.1f);
+        Prova pr3 = new Prova("Portugues", 2.1f);
         Prova pr4 = new Prova("Geografia", 3.2f);
         Prova pr5 = new Prova("Biologia", 5.4f);
         Prova pr6 = new Prova("Filosofia", 1.2f);
